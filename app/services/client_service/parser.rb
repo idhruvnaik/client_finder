@@ -13,8 +13,11 @@ module ClientService
           data = JSON.parse(line, symbolize_names: true)
           @clients << Client.new(user_id: data[:user_id], name: data[:name], latitude: data[:latitude], longitude: data[:longitude])
         end
+      rescue JSON::ParserError => error
+        Rails.logger.error("Something went wrong Client::Parser#parse - JSON::ParserError #{error.message}")
+        raise error
       rescue => error
-        Rails.logger.error("Something went wrong Client::Parser#parse #{e.message}")
+        Rails.logger.error("Something went wrong Client::Parser#parse #{error.message}")
         raise error
       end
     end
