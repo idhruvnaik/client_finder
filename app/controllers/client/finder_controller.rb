@@ -12,7 +12,9 @@ class Client::FinderController < ApplicationController
       filter = ClientService::Filter.new(clients: parser.clients, kilometers: kilometers)
       filter.filter_by_distance
 
-      render_success(filter.clients, "Filtered clients", :ok) and return
+      @clients = filter.clients
+
+      render_json_builder(path: :within_n_km)
     rescue => error
       Rails.logger.warn("Something went wrong Client#within_n_km #{error.message}")
       render_failure({}, "Something went wrong !!", :internal_server_error) and return
