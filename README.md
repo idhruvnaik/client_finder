@@ -1,24 +1,47 @@
-# README
+# Client Finder API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This Rails application allows you to upload a list of clients with location data and filter them based on distance in kilometers.
 
-Things you may want to cover:
+## 📦 Features
 
-* Ruby version
+- Filter clients based on geographical distance
+- API endpoint to get clients within a specified range
 
-* System dependencies
+---
 
-* Configuration
+## 🚀 Getting Started
 
-* Database creation
+### 1. Clone the Repository
 
-* Database initialization
+```bash
+git clone git@github.com:idhruvnaik/client_finder.git
+cd client_finder
+```
 
-* How to run the test suite
+### 2. Bundle Install
+```bash
+bundle install
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+### 3. Run test cases
+```bash
+RAIL_ENV=test bundle exec rspec
+```
 
-* Deployment instructions
+### 4. Start the server
+```bash
+rails server
+```
 
-* ...
+### 5. Download the sample file for testing
+```bash
+https://assets.theinnerhour.com/take-home-test/customers.txt
+```
+
+### 6. API configuration
+```bash
+POST /client/finder/within_n_km
+```
+
+
+> 👤 Dhruv Naik
