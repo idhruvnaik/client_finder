@@ -15,9 +15,12 @@ class Client::FinderController < ApplicationController
       @clients = filter.clients
 
       render_json_builder(path: :within_n_km)
+    rescue JSON::ParserError => error
+      Rails.logger.error("Something went wrong Client#within_n_km #{error.message}")
+      render_failure({}, "Invalid file format", :internal_server_error) and return
     rescue => error
-      Rails.logger.warn("Something went wrong Client#within_n_km #{error.message}")
-      render_failure({}, "Something went wrong !!", :internal_server_error) and return
+      Rails.logger.error("Something went wrong Client#within_n_km #{error.message}")
+      render_failure({}, error.message, :internal_server_error) and return
     end
   end
 end
