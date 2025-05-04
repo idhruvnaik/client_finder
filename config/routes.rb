@@ -7,4 +7,9 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+  namespace :client do
+    namespace :finder do
+      post "within_n_km", action: "within_n_km"
+    end
+  end
 end
