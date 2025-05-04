@@ -43,5 +43,10 @@ https://assets.theinnerhour.com/take-home-test/customers.txt
 POST /client/finder/within_n_km
 ```
 
+### 7. API Documentation path
+```bash
+documentation/api
+```
+
 
 > 👤 Dhruv Naik

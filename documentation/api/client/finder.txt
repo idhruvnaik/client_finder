@@ -1,0 +1,19 @@
+1. /client/finder/within_n_km
+    Request Type: POST
+
+    Description:
+        This API accepts a file containing client data and filters clients based on a specified distance (in kilometers) from a given location.
+
+    Request Parameters:
+        The API requires two parameters:
+
+        file: (Required) A .txt file containing the client data. Each line contains a JSON object
+
+        Content: Each line in the file should contain a JSON object with client information (e.g., user_id, name, latitude, longitude).
+        kilometers: (Required) A number representing the distance in kilometers for filtering the clients.
+
+    Curl:
+        curl -X POST \
+        http://localhost:3000/client/finder/within_n_km \
+        -F "file=@spec/fixtures/clients.jsonl" \
+        -F "kilometers=50"
