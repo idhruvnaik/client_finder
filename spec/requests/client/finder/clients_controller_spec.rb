@@ -13,7 +13,7 @@ RSpec.describe Client::FinderController, type: :request do
 
       expect(response).to have_http_status(:ok)
       body = JSON.parse(response.body)
-      expect(body["data"].size).to eq(2)
+      expect(body["clients"].size).to eq(2)
     end
 
     it "returns failure if required params are missing" do
