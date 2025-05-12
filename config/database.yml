@@ -1,0 +1,25 @@
+# config/database.yml
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  timeout: 5000
+
+development:
+  <<: *default
+  database: client_finder_development
+  username: dhruvnaik
+  password: your_db_password
+
+test:
+  <<: *default
+  database: client_finder_test
+  username: dhruvnaik
+  password: your_db_password
+
+production:
+  <<: *default
+  database: client_finder_prod
+  username: dhruvnaik
+  password: your_db_password
