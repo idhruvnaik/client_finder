@@ -8,7 +8,7 @@ module Distance
 
       c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a))
 
-      return (EARTH_RADIUS_KM * c).round(2)
+      (EARTH_RADIUS_KM * c).round(2)
     end
 
     private

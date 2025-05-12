@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.describe ClientService::Filter do
   let(:client1) { double("Client", user_id: 2, name: "Alice", latitude: 18.5204, longitude: 73.8567) }
   let(:client2) { double("Client", user_id: 1, name: "Bob", latitude: 19.0760, longitude: 72.8777) }
-  let(:clients) { [client1, client2] }
+  let(:clients) { [ client1, client2 ] }
 
   describe "#filter_by_distance" do
     before do
@@ -14,14 +14,14 @@ RSpec.describe ClientService::Filter do
     it "returns only clients within the given distance, sorted by user_id" do
       filter = ClientService::Filter.new(clients: clients, kilometers: 50)
       filter.filter_by_distance
-      expect(filter.clients).to eq([client2])
+      expect(filter.clients).to eq([ client2 ])
     end
 
     it "returns all clients within the distance when all qualify" do
       allow(Distance::Calculator).to receive(:distance_from).and_return(20)
       filter = ClientService::Filter.new(clients: clients, kilometers: 50)
       filter.filter_by_distance
-      expect(filter.clients.map(&:user_id)).to eq([1, 2])
+      expect(filter.clients.map(&:user_id)).to eq([ 1, 2 ])
     end
 
     it "returns no clients if none are within the distance" do

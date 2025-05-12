@@ -5,7 +5,7 @@ RSpec.describe ClientService::Parser, type: :service do
     let(:valid_file) {
       StringIO.new([
         { user_id: 1, name: "John Doe", latitude: 19.0760, longitude: 72.8777 }.to_json,
-        { user_id: 2, name: "Jane Smith", latitude: 28.7041, longitude: 77.1025 }.to_json,
+        { user_id: 2, name: "Jane Smith", latitude: 28.7041, longitude: 77.1025 }.to_json
       ].join("\n"))
     }
 
