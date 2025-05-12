@@ -42,7 +42,7 @@ jobs:
       - name: Start Rails server in background
         run: bin/rails server -e test -p 3000 & sleep 10 # wait for server to boot
       - name: Health check
-        run: curl --fail http://localhost:3000/health_check
+        run: curl --fail http://localhost:3000/up
 
   lint:
     runs-on: ubuntu-latest
